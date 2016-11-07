@@ -18,6 +18,11 @@ plot(data[[1]],data[[7]],type="n",,main="",ylab="Energy sub metring",xlab="2007/
 lines(data[[1]],data[[7]])
 lines(data[[1]],data[[8]],col="red")
 lines(data[[1]],data[[9]],col="blue")
+legend("topright", # places a legend at the appropriate place 
+c(colnames(data)[7],colnames(data)[8],colnames(data)[9]), # puts text in the legend
+lty=c(1,1,1), # gives the legend appropriate symbols (lines)
+lwd=c(2.5,2.5,2.5),col=c("black","red","blue")) # gives the legend lines the correct color and width
+
 #save plot
 dev.copy(png,'plot3.png')
 dev.off()
