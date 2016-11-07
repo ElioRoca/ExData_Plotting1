@@ -14,7 +14,7 @@ data[[1]]<-strptime(data[[1]], format="%d/%m/%Y %H:%M:%S")
 #change class for numeric variables
 for(i in 3:9){data[[i]]<-as.numeric(data[[i]])}
 #plot
-plot(data[[1]],data[[7]],type="n",,main="",ylab="Energy sub metring",xlab="2007/02/01-02")
+plot(data[[1]],data[[7]],type="n",,main="",ylab="Energy sub metering",xlab="2007/02/01-02")
 lines(data[[1]],data[[7]])
 lines(data[[1]],data[[8]],col="red")
 lines(data[[1]],data[[9]],col="blue")
