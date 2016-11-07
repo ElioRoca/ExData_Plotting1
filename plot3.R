@@ -22,7 +22,6 @@ legend("topright", # places a legend at the appropriate place
 c(colnames(data)[7],colnames(data)[8],colnames(data)[9]), # puts text in the legend
 lty=c(1,1,1), # gives the legend appropriate symbols (lines)
 lwd=c(2.5,2.5,2.5),col=c("black","red","blue")) # gives the legend lines the correct color and width
-
 #save plot
 dev.copy(png,'plot3.png')
 dev.off()
