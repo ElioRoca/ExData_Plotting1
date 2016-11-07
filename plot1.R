@@ -1,4 +1,3 @@
-
 ##set data
 #read data from zipfile
 dato <- read.table(unz("exdata%2Fdata%2Fhousehold_power_consumption.zip", "household_power_consumption.txt"), header=T, sep=";")
