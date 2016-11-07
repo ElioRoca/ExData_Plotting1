@@ -1,14 +1,23 @@
-##set data
-#read data from zipfile
+#set data
+##read data from zipfile
 dato <- read.table(unz("exdata%2Fdata%2Fhousehold_power_consumption.zip", "household_power_consumption.txt"), header=T, sep=";")
-#subset
-#change class to Date
-#change class to numeric
-##plot
-plot(data[[1]],data[[7]],type="n",,main="Global active power",ylab="Global active power (kilowatts)",xlab="time")
-lines(data[[1]],data[[7]],col="")
-lines(data[[1]],data[[8]],col="")
-lines(data[[1]],data[[9]],col="")
-##save plot
-dev.copy(png,'plot2.png')
+##index
+###change first column to Data class
+date<-as.Date(dato[[1]],format = "%d/%m/%Y")
+###create index for selected dates
+index<-date=="2007-02-01"|date=="2007-02-02"
+##subset "date" and "Global_active_power" for given dates
+data<-dato[index,]
+##change class for time
+data[[1]]<-paste(data$Date, data$Time)
+data[[1]]<-strptime(data[[1]], format="%d/%m/%Y %H:%M:%S")
+#change class for numeric variables
+for(i in 3:9){data[[i]]<-as.numeric(data[[i]])}
+#plot
+plot(data[[1]],data[[7]],type="n",,main="",ylab="Energy sub metring",xlab="2007/02/01-02")
+lines(data[[1]],data[[7]])
+lines(data[[1]],data[[8]],col="red")
+lines(data[[1]],data[[9]],col="blue")
+#save plot
+dev.copy(png,'plot3.png')
 dev.off()
